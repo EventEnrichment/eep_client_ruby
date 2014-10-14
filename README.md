@@ -20,7 +20,7 @@ gem 'eep_client'
 
 ### Init
 
-First, require the library and then create an instance of the client with your company's api_token.  You may also want to include the EeepClient::Const module for proper Event severity and priority values:
+First, require the library and then create an instance of the client with your company's api_token.  You may also want to include the `EepClient::Const` module for proper Event severity and priority values:
 
 ``` ruby
 require 'eep_client'
@@ -32,7 +32,7 @@ ec = EepClient.new('your_company_api_token')
 
 ### Sending Events
 
-Send events with the send_event method which takes a Hash of event attribute names and values.  This will return either an EepClient::OkResponse on success or an EepClient::ErrorResponse on error.  Attribute names are ruby symbols that map to the 'JSON attr' column of the [EEP Common Event Format](http://support.eventenrichment.com/knowledge_base/topics/event-enrichment-common-event-format) table:
+Send events with the `send_event` method which takes a Hash of event attribute names and values.  This will return either an `EepClient::OkResponse` on success or an `EepClient::ErrorResponse` on error.  Attribute names are ruby symbols that map to the 'JSON attr' column of the [EEP Common Event Format](http://support.eventenrichment.com/knowledge_base/topics/event-enrichment-common-event-format) table:
 
 ``` ruby
 event = {
@@ -56,7 +56,7 @@ end
 
 ### Clearing Events
 
-Clear events with the clear_event method which takes a Hash consisting of the Event's local_instance_id and source_location.  This will return either an EepClient::OkResponse on success or an EepClient::ErrorResponse on error:
+Clear events with the `clear_event` method which takes a `Hash` consisting of the Event's `local_instance_id` and `source_location`.  This will return either an `EepClient::OkResponse` on success or an `EepClient::ErrorResponse` on error:
 
 ``` ruby
 clear = {
@@ -73,3 +73,4 @@ else
  puts response.messages.join("\n")
 end
 ```
+
