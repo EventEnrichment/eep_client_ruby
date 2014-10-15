@@ -11,7 +11,7 @@ CLEAR = 'clear'
 OK = 'ok'
 
 # urls
-BASE_URL = 'https://bender.lab.pdist.net'
+BASE_URL = 'https://eep.eventenrichment.com'
 BASE_RESOURCE = '/api/v1/'
 EVENT_RESOURCE = BASE_RESOURCE + EVENT
 CLEAR_RESOURCE = BASE_RESOURCE + CLEAR
@@ -26,9 +26,10 @@ class EepClient
   def initialize(api_token, options = { })
     @api_token = api_token
     @debug = options[:debug]
+    @base_url = options[:base_url] || BASE_URL
     
     unless options[:no_send]
-      uri = URI(BASE_URL)      
+      uri = URI(@base_url)      
       @http = Net::HTTP.new(uri.host, uri.port)
       @http.use_ssl = true
       @http.verify_mode = OpenSSL::SSL::VERIFY_NONE if options[:no_verify]
