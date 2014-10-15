@@ -32,7 +32,7 @@ ec = EepClient.new('your_company_api_token')
 
 ### Sending Events
 
-Send events with the `send_event` method which takes a Hash of event attribute names and values.  This will return either an `EepClient::OkResponse` on success or an `EepClient::ErrorResponse` on error.  Attribute names are ruby symbols that map to the 'JSON attr' column of the [EEP Common Event Format](http://support.eventenrichment.com/knowledge_base/topics/event-enrichment-common-event-format) table:
+Send events with the `send_event` method which takes a `Hash` of event attribute names and values.  This will return either an `EepClient::OkResponse` on success or an `EepClient::ErrorResponse` on error.  Attribute names are ruby symbols that map to the `JSON attr` column of the [EEP Common Event Format](http://support.eventenrichment.com/knowledge_base/topics/event-enrichment-common-event-format) table:
 
 ``` ruby
 event = {
