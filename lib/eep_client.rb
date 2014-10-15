@@ -45,8 +45,12 @@ class EepClient
     end
     if @http
       headers = { ACC_HDR => APP_JSON, CON_HDR => APP_JSON }      
-      res = @http.send_request(POST, EVENT_RESOURCE, json, headers).body
-      Response.new_instance(JSON.parse(res))
+      res = @http.send_request(POST, EVENT_RESOURCE, json, headers)
+      if res.is_a? Net::HTTPServerError
+        res.error!
+      else
+        Response.new_instance(JSON.parse(res.body))
+      end
     else
       Response.mock_event_ok
     end
@@ -60,8 +64,12 @@ class EepClient
     end
     if @http
       headers = { ACC_HDR => APP_JSON, CON_HDR => APP_JSON }
-      res = @http.send_request(POST, CLEAR_RESOURCE, json, headers).body
-      Response.new_instance(JSON.parse(res))
+      res = @http.send_request(POST, CLEAR_RESOURCE, json, headers)
+      if res.is_a? Net::HTTPServerError
+        res.error!
+      else      
+        Response.new_instance(JSON.parse(res.body))
+      end
     else
       Response.mock_clear_ok      
     end

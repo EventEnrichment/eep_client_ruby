@@ -74,3 +74,8 @@ else
 end
 ```
 
+### Exceptions
+
+In the event that EEP is down or server infrastructure is in a bad state, `send_event` and `clear_event` may raise `Errno::ECONNREFUSED` or one of the `Net::HTTPServerError` subclasses indicating a 5xx HTTP error.
+
+

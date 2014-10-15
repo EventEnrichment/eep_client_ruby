@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'eep_client'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.date = '2014-10-13'
   s.summary = 'Event Enrichment Platform (EEP) REST API client'
   s.description = 'A client library for sending and clearing Events via the Event Enrichment Platform (EEP) REST API'
