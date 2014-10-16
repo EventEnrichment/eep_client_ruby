@@ -39,7 +39,7 @@ event = {
   :local_instance_id => 'abc123',
   :creation_time => '2014-10-13T18:00:00Z', # or an int for unix epoch or a ruby Time instance
   :severity => SEV_CRITICAL,
-  :message => 'Uh oh, we have a problem',
+  :msg => 'Uh oh, we have a problem',
   :event_class => 'Snafus',
   :source_location => 'some.host.com'
 }
