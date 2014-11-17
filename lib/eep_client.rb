@@ -1,9 +1,15 @@
+require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'time'
 require 'net/http'
 require 'net/https'
 require 'json'
-require_relative 'eep_client/const'
-require_relative 'eep_client/response'
+if RUBY_VERSION < '1.9.0'
+  require File.join(File.dirname(__FILE__), 'eep_client', 'const')
+  require File.join(File.dirname(__FILE__), 'eep_client', 'response')  
+else
+  require_relative 'eep_client/const'
+  require_relative 'eep_client/response'
+end
 
 ## some constants
 EVENT = 'event'
