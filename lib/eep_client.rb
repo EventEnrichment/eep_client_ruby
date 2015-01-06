@@ -102,7 +102,7 @@ class EepClient
       val = data[name]
       if val
         case
-        when val.is_a?(Fixnum)
+        when val.is_a?(Fixnum), val.is_a?(Bignum)
           data[name] = Time.at(val).iso8601
         when val.is_a?(Time)
           data[name] = val.iso8601
